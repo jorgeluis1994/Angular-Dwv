@@ -18,6 +18,7 @@ export class DicomFixComponent implements OnInit {
 };
   
   ngOnInit(): void {
+    debugger
     // create the dwv app
   this.dwv = new App();
   // initialise
