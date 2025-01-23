@@ -3,17 +3,26 @@
 <div class="full-screen">
 
   <div class="centered-div">
-    <mat-button-toggle-group name="tool">
-      <mat-button-toggle value="{{ tool }}" color="primary" *ngFor="let tool of toolNames" title="{{ tool }}"
-        (click)="onChangeTool(tool)" [disabled]="!canRunTool(tool)">
-        <mat-icon>{{ getToolIcon(tool) }}</mat-icon>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
+    
   </div>
 
   <div id="layerGroup0" class="layerGroup">
     <div id="dropBox"></div>
   </div>
+  <mat-button-toggle-group name="tool">
+    <mat-button-toggle value="{{ tool }}" color="primary" *ngFor="let tool of toolNames" title="{{ tool }}"
+      (click)="onChangeTool(tool)" [disabled]="!canRunTool(tool)">
+      <mat-icon>{{ getToolIcon(tool) }}</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-button-toggle-group name="reset" 
+      (change)="onSingleToogleChange($event)">
+      <mat-button-toggle color="primary"
+        title="Reset"
+        (click)="onReset()">
+        <mat-icon>refresh</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
 
 
 </div>

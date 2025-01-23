@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 //Material
 import { MatButtonModule } from '@angular/material/button';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatButtonToggleChange, MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -61,11 +61,7 @@ export class DicomFixComponent implements OnInit {
 
         this.listDicomFiles=response.map((data: any) => data.url);
         // console.log(this.listDicomFiles);
-        this.dwv.loadURLs([
-          // 'https://raw.githubusercontent.com/ivmartel/dwv/master/tests/data/bbmri-53323851.dcm',
-           'http://localhost:5179/api/Route/files/image-00057.dcm',
-          // 'https://dev.mercadofin.com:18080/ipfs/QmUtwFgtEFXpo1x3upe8jvhP9USeoWeoVKYJWUSYZ5BXLP'
-          ]);
+        this.dwv.loadURLs(this.listDicomFiles);
       },
       (error) => {
         console.error('Error al obtener datos:', error);
@@ -127,6 +123,16 @@ export class DicomFixComponent implements OnInit {
       res = true;
     }
     return res;
+  }
+
+  onReset = () => {
+    if ( this.dwv ) {
+      this.dwv.resetDisplay();
+    }
+  }
+  onSingleToogleChange = (event: MatButtonToggleChange) => {
+    // unset value -> do not select button
+    event.source.buttonToggleGroup.value = '';
   }
 
 }

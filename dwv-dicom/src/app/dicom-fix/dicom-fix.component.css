@@ -13,7 +13,7 @@
   left: 0;          /* Alinéa al inicio de la pantalla */
   width: 100vw;     /* Ancho completo de la pantalla */
   height: 100vh;    /* Altura completa de la pantalla */
-  background-color: black; /* Color de fondo negro */
+  background-color: rgb(26, 24, 24); /* Color de fondo negro */
   z-index: 9999;    /* Asegúrate de que esté en frente */
 }
 /* Estilo para centrar el div en la parte superior */
